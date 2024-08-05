@@ -8,7 +8,7 @@ class House:
 
     def __add__(self, value):
         self.number_of_floors = self.number_of_floors + value
-        return f' Название: {self.name}, кол-во этажей: {self.number_of_floors}'
+        return self
 
     def __iadd__(self, value):
         self.number_of_floors += value
@@ -16,7 +16,7 @@ class House:
 
     def __radd__(self, value):
         self.number_of_floors = value + self.number_of_floors
-        return f' Название: {self.name}, кол-во этажей: {self.number_of_floors}'
+        return self
 
     def __eq__(self, other):
         return self.number_of_floors == other.number_of_floors
@@ -47,9 +47,9 @@ print(h1 == h2)  # __eq__
 
 h1 = h1 + 10  # __add__
 print(h1)
-#print(h1 == h2) #                      здесь вылетает с ошибкой
+print(h1 == h2)
 
-#h1 += 10  # __iadd__   #                      здесь вылетает с ошибкой
+h1 += 10  # __iadd__
 print(h1)
 
 h2 = 10 + h2  # __radd__
